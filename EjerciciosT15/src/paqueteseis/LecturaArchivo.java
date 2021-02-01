@@ -23,6 +23,9 @@ public class LecturaArchivo {
         double suma = 0;
         double promedio;
         double sueldo;
+        String edad;
+        int edadEntero;
+        int contador = 0;
         
         // 1. Se abre el archivo
         try // lee registros del archivo, usando el objeto Scanner
@@ -35,9 +38,17 @@ public class LecturaArchivo {
                 ArrayList<String> linea_partes = new ArrayList<>(lista);
                 
                 // agregar código aquí
-                sueldo = Double.parseDouble(linea_partes.get(2));
-                suma = suma + sueldo;
+                edad = linea_partes.get(1);
+                edadEntero = Integer.parseInt(edad);
                 
+                if(edadEntero >= 30 && edadEntero <= 35){ 
+                    sueldo = Double.parseDouble(linea_partes.get(2));
+                    suma = suma + sueldo;
+                    contador = contador + 1;
+                
+                }
+                
+                // promedio = suma / contador;
             } // fin de while
             entrada.close();
         } // fin de try
@@ -46,8 +57,8 @@ public class LecturaArchivo {
             System.exit(1); 
         } // fin de catch
         
-        
-        return suma;
+        promedio = suma / contador;
+        return promedio;
         
     } // fin del m�todo leerRegistros
     // cierra el archivo y termina la aplicaci�n

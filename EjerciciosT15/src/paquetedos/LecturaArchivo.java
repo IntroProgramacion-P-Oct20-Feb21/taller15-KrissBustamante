@@ -46,7 +46,9 @@ public class LecturaArchivo {
                 numeroEstablecimientosEntero = Integer.parseInt(numeroEstablecimientos);
                 // agregar código aquí
                 
+                //System.out.printf("%d\n", numeroEstablecimientosEntero);
                 
+                suma = suma +numeroEstablecimientosEntero;
             } // fin de while
             entrada.close();
         } // fin de try
