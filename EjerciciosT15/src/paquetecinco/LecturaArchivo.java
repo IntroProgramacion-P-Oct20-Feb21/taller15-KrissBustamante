@@ -16,14 +16,14 @@ import java.util.Scanner;
  * @author reroes
  */
 public class LecturaArchivo {
-   
+      
     // lee registro del archivo
     public static double leerRegistros() {
         
         double suma = 0;
         double promedio;
         double sueldo;
-        
+        int contador =0;
         // 1. Se abre el archivo
         try // lee registros del archivo, usando el objeto Scanner
         {
@@ -37,6 +37,7 @@ public class LecturaArchivo {
                 // agregar código aquí
                 sueldo = Double.parseDouble(linea_partes.get(2));
                 suma = suma + sueldo;
+                contador = contador + 1;
                 
             } // fin de while
             entrada.close();
@@ -46,8 +47,8 @@ public class LecturaArchivo {
             System.exit(1); 
         } // fin de catch
         
-        
-        return suma;
+        promedio = suma / contador;
+        return promedio;
         
     } // fin del m�todo leerRegistros
     // cierra el archivo y termina la aplicaci�n
